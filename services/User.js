@@ -13,6 +13,7 @@ const create = async (newUser) => {
     password: newUser.password,
     image: newUser.image,
   });
+
   return user;
 };
 
