@@ -1,7 +1,5 @@
-module.exports = (sequelize, DataTypes) => {
-  const Users = sequelize.define('Users', {
-    // id: { criado automaticamente }
-
+const User = (sequelize, DataTypes) => {
+  const Users = sequelize.define('User', {
     displayName: { type: DataTypes.STRING, allowNull: false },
 
     email: { type: DataTypes.STRING, allowNull: false },
@@ -11,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     image: { type: DataTypes.STRING, allowNull: false },
 
   }, { timestamps: false });
-  
   return Users;
 };
+
+module.exports = User;
