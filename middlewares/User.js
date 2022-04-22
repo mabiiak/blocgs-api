@@ -2,7 +2,7 @@ const Joi = require('joi');
 const services = require('../services/User');
 
 const userSchema = Joi.object({
-  password: Joi.string().min.required(),
+  password: Joi.string().required(),
   displayName: Joi.string().min(8),
   email: Joi.string().email().required(),
   image: Joi.string(),
@@ -24,6 +24,7 @@ const mail = async (req, res, next) => {
     return res.status(400)
       .json({ message: '"password" length must be 6 characters long' });
   }
+  // ver como personalizar mensagem de erro Joi e como usar o try/catch/throw
 
   if (checkEmail !== null) return res.status(409).json({ message: 'User already registered' });
 
