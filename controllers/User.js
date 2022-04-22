@@ -12,8 +12,4 @@ const create = async (req, res) => {
   res.status(201).json({ token: 'ex1451564151' });
 };
 
-// cria usuario ---> ok
-// validações --->
-// cria token --->
-
 module.exports = { create };

@@ -17,4 +17,11 @@ const create = async (newUser) => {
   return user;
 };
 
-module.exports = { create };
+const findEmail = async (search) => {
+  const find = await User.findOne({
+    where: search,
+  });
+  return find;
+};
+
+module.exports = { create, findEmail };
