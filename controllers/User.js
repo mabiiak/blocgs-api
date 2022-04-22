@@ -10,6 +10,7 @@ const create = async (req, res) => {
   await service.create(newUser);
 
   res.status(201).json({ token: 'ex1451564151' });
+  // implementar criação de token
 };
 
 module.exports = { create };

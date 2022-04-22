@@ -4,6 +4,8 @@ const app = express();
 
 const routes = require('./routes/routes');
 
+const { errorHandle } = require('./middlewares/ErrorHandle');
+
 app.listen(3000, () => console.log('ouvindo porta 3000!'));
 
 app.use(express.json());
@@ -14,3 +16,5 @@ app.get('/', (request, response) => {
 });
 
 app.use('/', routes);
+
+app.use(errorHandle);
