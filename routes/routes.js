@@ -12,7 +12,7 @@ const validateLogin = require('../middlewares/validateLogin');
 
 rotas.post('/user', validateUser.user, validateUser.mail, controllerUser.create);
 
-rotas.get('/user', controllerUser.getAll);
+rotas.get('/user', validateUser.token, controllerUser.getAll);
 
 // ----------------------------------------------------------
 
