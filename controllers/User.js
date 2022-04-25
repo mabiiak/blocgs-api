@@ -1,13 +1,10 @@
-const jwt = require('jsonwebtoken');
 const service = require('../services/User');
+const { createToken } = require('../middlewares/jwt');
 
 const create = async (req, res) => {
   const { displayName, email, password, image } = req.body;
 
-  const secret = 'secretToken';
-  const jwtConfig = { expiresIn: '1d', algorithm: 'HS256' };
-
-  const token = jwt.sign({ data: req.body }, secret, jwtConfig);
+  const token = createToken(req.body);
 
   const newUser = {
     displayName, email, password, image,
