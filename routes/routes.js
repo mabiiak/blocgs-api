@@ -16,8 +16,24 @@ rotas.get('/user', validateUser.token, controllerUser.getAll);
 
 rotas.get('/user/:id', validateUser.checkId, validateUser.token, controllerUser.getByEmail);
 
-// ----------------------------------------------------------
+// -------------------------------------------------------------------------------------------
 
 rotas.post('/login', validateLogin.login, validateLogin.existEmail, controllerLogin.login);
+
+// -------------------------------------------------------------------------------------------
+
+rotas.post('/categories');
+
+rotas.get('/categories');
+
+// ----------------------------
+
+rotas.post('/post');
+
+rotas.get('/post');
+
+rotas.get('/post/:id');
+
+rotas.put('/post/:id');
 
 module.exports = rotas;
