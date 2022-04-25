@@ -14,6 +14,8 @@ rotas.post('/user', validateUser.user, validateUser.mail, controllerUser.create)
 
 rotas.get('/user', validateUser.token, controllerUser.getAll);
 
+rotas.get('/user/:id', validateUser.checkId, validateUser.token, controllerUser.getByEmail);
+
 // ----------------------------------------------------------
 
 rotas.post('/login', validateLogin.login, validateLogin.existEmail, controllerLogin.login);

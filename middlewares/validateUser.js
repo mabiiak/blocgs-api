@@ -18,7 +18,7 @@ const user = (req, _res, next) => {
 
 const mail = async (req, res, next) => {  
   const { email, password } = req.body;
-  const checkEmail = await services.findEmail({ email });
+  const checkEmail = await services.getBy({ email });
 
   if (password.length < 6) {
     return res.status(400)
@@ -31,7 +31,7 @@ const mail = async (req, res, next) => {
   next();
 };
 
-const token = async (req, res, next) => {
+const token = (req, res, next) => {
   const validateToken = req.headers.authorization;
 
   if (!validateToken) return res.status(401).json({ message: 'Token not found' });
@@ -43,4 +43,14 @@ const token = async (req, res, next) => {
   next();
 };
 
-module.exports = { user, mail, token };
+const checkId = async (req, res, next) => {
+  const { id } = req.params;
+
+  const filter = await services.getBy({ id });
+
+  if (filter === null) return res.status(404).json({ message: 'User does not exist' });
+
+  next();
+};
+
+module.exports = { user, mail, token, checkId };

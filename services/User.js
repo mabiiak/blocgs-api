@@ -11,7 +11,7 @@ const create = async (newUser) => {
   return user;
 };
 
-const findEmail = async (search) => {
+const getBy = async (search) => {
   const find = await User.findOne({
     where: search,
   });
@@ -24,4 +24,4 @@ const getAll = async () => {
   return allUsers;
 };
 
-module.exports = { create, findEmail, getAll };
+module.exports = { create, getBy, getAll };

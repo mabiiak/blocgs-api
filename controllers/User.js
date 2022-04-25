@@ -15,4 +15,12 @@ const getAll = async (req, res) => {
   res.status(200).json(allUsers);
 };
 
-module.exports = { create, getAll };
+const getByEmail = async (req, res) => {
+  const { id } = req.params;
+  
+  const searchUser = await service.getBy(Number(id));
+
+  res.status(200).json(searchUser);
+};
+
+module.exports = { create, getAll, getByEmail };

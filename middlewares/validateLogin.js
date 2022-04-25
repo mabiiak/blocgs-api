@@ -16,7 +16,7 @@ const login = (req, _res, next) => {
 
 const existEmail = async (req, res, next) => {  
   const { email } = req.body;
-  const checkEmail = await services.findEmail({ email });
+  const checkEmail = await services.getBy({ email });
 
   if (checkEmail === null) return res.status(400).json({ message: 'Invalid fields' });
 
