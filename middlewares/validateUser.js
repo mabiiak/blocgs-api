@@ -8,7 +8,7 @@ const userSchema = Joi.object({
   image: Joi.string(),
 });
 
-const validate = (req, _res, next) => {
+const user = (req, _res, next) => {
   const { error } = userSchema.validate(req.body);
 
   if (error) throw error;
@@ -31,4 +31,4 @@ const mail = async (req, res, next) => {
   next();
 };
 
-module.exports = { validate, mail };
+module.exports = { user, mail };

@@ -2,18 +2,20 @@ const express = require('express');
 
 const rotas = express.Router();
 
+const controllerUser = require('../controllers/User');
+const validateUser = require('../middlewares/validateUser');
+
+const controllerLogin = require('../controllers/Login');
+const validateLogin = require('../middlewares/validateLogin');
+
 // ----------------------------------------------------------
 
-const { create } = require('../controllers/User');
-const { validate, mail } = require('../middlewares/validateUser');
+rotas.post('/user', validateUser.user, validateUser.mail, controllerUser.create);
 
-rotas.post('/user', validate, mail, create);
+rotas.get('/user', controllerUser.getAll);
 
 // ----------------------------------------------------------
 
-const { login } = require('../controllers/Login');
-const { validateLogin, existEmail } = require('../middlewares/validateLogin');
-
-rotas.post('/login', validateLogin, existEmail, login);
+rotas.post('/login', validateLogin.login, validateLogin.existEmail, controllerLogin.login);
 
 module.exports = rotas;

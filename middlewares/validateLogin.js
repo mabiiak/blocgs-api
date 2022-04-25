@@ -6,7 +6,7 @@ const userSchema = Joi.object({
   password: Joi.string().required(),
 });
 
-const validateLogin = (req, _res, next) => {
+const login = (req, _res, next) => {
   const { error } = userSchema.validate(req.body);
 
   if (error) throw error;
@@ -23,4 +23,4 @@ const existEmail = async (req, res, next) => {
   next();
 };
 
-module.exports = { validateLogin, existEmail };
+module.exports = { login, existEmail };
