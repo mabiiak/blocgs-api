@@ -8,7 +8,9 @@ const validateUser = require('../middlewares/validateUser');
 const controllerLogin = require('../controllers/Login');
 const validateLogin = require('../middlewares/validateLogin');
 
-// ----------------------------------------------------------
+const controllerCategorie = require('../controllers/Categorie');
+
+// --------------------------------------------------------------
 
 rotas.post('/user', validateUser.user, validateUser.mail, controllerUser.create);
 
@@ -22,9 +24,9 @@ rotas.post('/login', validateLogin.login, validateLogin.existEmail, controllerLo
 
 // -------------------------------------------------------------------------------------------
 
-rotas.post('/categories');
+rotas.post('/categories', controllerCategorie.create);
 
-rotas.get('/categories');
+rotas.get('/categories', controllerCategorie.getAll);
 
 // ----------------------------
 
