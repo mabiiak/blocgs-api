@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
   }, { timestamps: false });
   
     BlogPosts.associate = (models) => {
-    BlogPosts.hasMany(models.User,
-      { foreignKey: 'id' });
+    BlogPosts.belongsTo(models.User,
+      { foreignKey: 'id', as: 'user' });
   };
 
   return BlogPosts;

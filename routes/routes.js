@@ -9,8 +9,11 @@ const controllerLogin = require('../controllers/Login');
 const validateLogin = require('../middlewares/validateLogin');
 const validateToken = require('../middlewares/validateToken');
 
-const controllerCategorie = require('../controllers/Categorie');
-const validateCategorie = require('../middlewares/validateCategorie');
+const controllerCategorie = require('../controllers/Category');
+const validateCategorie = require('../middlewares/validateCategory');
+
+const controllerPost = require('../controllers/Post');
+
 // --------------------------------------------------------------
 
 rotas.post('/user', validateUser.user, validateUser.mail, controllerUser.create);
@@ -38,7 +41,7 @@ rotas.get('/categories', validateToken.token, controllerCategorie.getAll);
 
 rotas.post('/post');
 
-rotas.get('/post');
+rotas.get('/post', controllerPost.getAll);
 
 rotas.get('/post/:id');
 
