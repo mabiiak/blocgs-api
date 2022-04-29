@@ -41,7 +41,7 @@ rotas.get('/categories', validateToken.token, controllerCategorie.getAll);
 
 rotas.post('/post');
 
-rotas.get('/post', controllerPost.getAll);
+rotas.get('/post', validateToken.token, controllerPost.getAll);
 
 rotas.get('/post/:id');
 

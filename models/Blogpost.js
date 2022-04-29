@@ -3,8 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     title: { type: DataTypes.STRING },
     content: { type: DataTypes.STRING },
     userId: { type: DataTypes.INTEGER },
-    published: { type: DataTypes.STRING },
-    updated: { type: DataTypes.STRING },
+    published: { type: DataTypes.DATE },
+    updated: { type: DataTypes.DATE },
   }, { timestamps: false });
   
   BlogPosts.associate = (models) => {

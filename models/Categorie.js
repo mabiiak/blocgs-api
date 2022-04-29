@@ -3,11 +3,6 @@ const Categorie = (sequelize, DataTypes) => {
     name: { type: DataTypes.STRING },
   }, { timestamps: false });
 
-  // Categories.associate = (models) => {
-  //   Categories.belongsTo(models.PostCategories,
-  //     { foreignKey: 'categoryId' });
-  // };
-
   return Categories;
 };
 
