@@ -3,7 +3,7 @@ const { createToken } = require('../middlewares/jwt');
 
 const create = async (req, res) => {
   const token = createToken(req.body);
-
+  console.log(token);
   await service.create(req.body);
 
   res.status(201).json({ token });
