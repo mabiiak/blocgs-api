@@ -144,7 +144,6 @@ module.exports = {
 
     ❌ 11 - Sua aplicação deve ter o endpoint DELETE `post/:id`
 
-
     ❌ 12 - Sua aplicação deve ter o endpoint DELETE `/user/me`
 
     ❌ 13 - Sua aplicação deve ter o endpoint GET `post/search?q=:searchTerm`
